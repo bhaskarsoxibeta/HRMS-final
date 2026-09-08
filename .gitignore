@@ -1,5 +1,6 @@
 node_modules/
 .DS_Store
 *.log
+
+# Runtime authentication session store
 data/.sessions.json
-hrms_fixed_header/data/.sessions.json

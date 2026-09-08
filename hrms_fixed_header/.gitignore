@@ -1,6 +1,0 @@
-node_modules/
-.DS_Store
-*.log
-
-# Runtime authentication session store
-data/.sessions.json

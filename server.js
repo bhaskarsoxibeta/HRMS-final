@@ -26,6 +26,7 @@ const USERS = {
   'manager@soxibeta.com': { password: 'manager2026', role: 'manager', name: 'Operations / Engineering Lead' },
   'employee@soxibeta.com': { password: 'employee2026', role: 'employee', name: 'Individual Contributor' }
 };
+const SESSION_SECRET = process.env.SESSION_SECRET || 'hrms-soxibeta-enterprise-secret-key-2026';
 const sessions = new Map();
 const SESSION_TTL_MS = 7 * 24 * 60 * 60 * 1000;
 const SESSION_FILE = path.join(__dirname, 'data', '.sessions.json');
@@ -43,7 +44,7 @@ function loadSessions() {
       }
     });
   } catch (err) {
-    console.warn('Could not restore persisted sessions:', err.message);
+    // Non-critical in serverless environments
   }
 }
 
@@ -53,7 +54,7 @@ function persistSessions() {
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(SESSION_FILE, JSON.stringify(Object.fromEntries(sessions), null, 2), 'utf8');
   } catch (err) {
-    console.warn('Could not persist sessions:', err.message);
+    // Non-critical in serverless environments
   }
 }
 
@@ -68,8 +69,11 @@ function parseCookies(req) {
 }
 
 function createSession(email) {
-  const token = crypto.randomBytes(32).toString('hex');
-  sessions.set(token, { email, createdAt: Date.now(), expiresAt: Date.now() + SESSION_TTL_MS });
+  const expiresAt = Date.now() + SESSION_TTL_MS;
+  const payload = Buffer.from(JSON.stringify({ email, expiresAt })).toString('base64url');
+  const sig = crypto.createHmac('sha256', SESSION_SECRET).update(payload).digest('hex');
+  const token = `${payload}.${sig}`;
+  sessions.set(token, { email, createdAt: Date.now(), expiresAt });
   persistSessions();
   return token;
 }
@@ -77,6 +81,22 @@ function createSession(email) {
 function getAuthenticatedUser(req) {
   const token = parseCookies(req).hrms_session;
   if (!token) return null;
+
+  // 1. Verify stateless signed token
+  if (token.includes('.')) {
+    const [payload, sig] = token.split('.');
+    const expectedSig = crypto.createHmac('sha256', SESSION_SECRET).update(payload).digest('hex');
+    if (sig === expectedSig) {
+      try {
+        const data = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8'));
+        if (data.expiresAt > Date.now() && USERS[data.email]) {
+          return { email: data.email, ...USERS[data.email] };
+        }
+      } catch (_) {}
+    }
+  }
+
+  // 2. Fallback to in-memory sessions map
   const session = sessions.get(token);
   if (!session || session.expiresAt < Date.now()) {
     if (session) { sessions.delete(token); persistSessions(); }
@@ -505,10 +525,15 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, () => {
-  console.log(`\n======================================================`);
-  console.log(`  HRMS — Enterprise Human Resource Management System v2.0`);
-  console.log(`  Running on http://localhost:${PORT}`);
-  console.log(`  Enterprise RBAC | 21 Executable Reports | Zero Dependencies`);
-  console.log(`======================================================\n`);
-});
+if (require.main === module) {
+  server.listen(PORT, () => {
+    console.log(`\n======================================================`);
+    console.log(`  HRMS — Enterprise Human Resource Management System v2.0`);
+    console.log(`  Running on http://localhost:${PORT}`);
+    console.log(`  Enterprise RBAC | 21 Executable Reports | Zero Dependencies`);
+    console.log(`======================================================\n`);
+  });
+}
+
+module.exports = server;
+
