@@ -153,6 +153,16 @@ function sendError(res, statusCode, message, details = null) {
 
 function parseBody(req) {
   return new Promise((resolve, reject) => {
+    if (req.body && typeof req.body === 'object') {
+      return resolve(req.body);
+    }
+    if (req.body && typeof req.body === 'string') {
+      try {
+        return resolve(JSON.parse(req.body));
+      } catch (_) {
+        return resolve({});
+      }
+    }
     let body = '';
     req.on('data', chunk => {
       body += chunk.toString();
@@ -198,10 +208,10 @@ function serveStatic(req, res, pathname) {
   });
 }
 
-const server = http.createServer(async (req, res) => {
-  const parsedUrl = url.parse(req.url, true);
+async function handleRequest(req, res) {
+  const parsedUrl = url.parse(req.url || '/', true);
   const pathname = parsedUrl.pathname;
-  const method = req.method.toUpperCase();
+  const method = (req.method || 'GET').toUpperCase();
   const requestedRole = parsedUrl.query.role || req.headers['x-role'] || 'cxo';
   const publicPath = pathname === '/' || pathname === '/login.html' || pathname === '/styles.css' || pathname === '/login.css' || pathname === '/app.js';
   const authUser = getAuthenticatedUser(req);
@@ -523,7 +533,9 @@ const server = http.createServer(async (req, res) => {
     console.error('Server error:', err);
     return sendError(res, 500, 'Internal Server Error', err.message);
   }
-});
+}
+
+const server = http.createServer(handleRequest);
 
 if (require.main === module) {
   server.listen(PORT, () => {
@@ -535,5 +547,6 @@ if (require.main === module) {
   });
 }
 
-module.exports = server;
+module.exports = handleRequest;
+
 
