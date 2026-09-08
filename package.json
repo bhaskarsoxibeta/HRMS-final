@@ -4,7 +4,8 @@
   "description": "Enterprise Human Resource Management System",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "echo 'Build ready'"
   },
   "keywords": [
     "hrms",
