@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HRMS — Sign In</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <main class="login-shell">
+    <section class="login-visual">
+      <div class="visual-brand"><span class="visual-mark">H</span><span>HRMS</span></div>
+      <div class="visual-content">
+        <span class="eyebrow">WORKFORCE INTELLIGENCE</span>
+        <h1>One workspace for your entire workforce.</h1>
+        <p>Role-based analytics, people insights, reporting and operational intelligence — presented in one focused dashboard.</p>
+        <div class="visual-stats">
+          <div><strong>600+</strong><span>Verified records</span></div>
+          <div><strong>21</strong><span>Standard reports</span></div>
+          <div><strong>5</strong><span>Role perspectives</span></div>
+        </div>
+      </div>
+      <div class="visual-footer">Secure role-based access <span>•</span> Enterprise HRMS</div>
+    </section>
+
+    <section class="login-panel" aria-labelledby="login-title">
+      <div class="mobile-brand"><span class="visual-mark">H</span><span>HRMS</span></div>
+      <div class="login-heading">
+        <span class="eyebrow">WELCOME BACK</span>
+        <h2 id="login-title">Sign in to HRMS</h2>
+        <p>Choose your role perspective and continue to your workspace.</p>
+      </div>
+
+      <div class="role-heading">
+        <span>ROLE PERSPECTIVE</span>
+        <span class="role-hint" id="role-hint">CEO Executive</span>
+      </div>
+      <div class="role-grid" id="role-grid">
+        <button class="role-btn active" data-role="cxo" type="button"><span class="role-code">CEO</span><span>Executive</span></button>
+        <button class="role-btn" data-role="chro" type="button"><span class="role-code">CHRO</span><span>Chief HR</span></button>
+        <button class="role-btn" data-role="hrbp" type="button"><span class="role-code">HRBP</span><span>Sales</span></button>
+        <button class="role-btn" data-role="manager" type="button"><span class="role-code">MGR</span><span>Manager</span></button>
+        <button class="role-btn" data-role="employee" type="button"><span class="role-code">EMP</span><span>Employee</span></button>
+      </div>
+
+      <form id="login-form" novalidate>
+        <label for="email">EMAIL ADDRESS</label>
+        <input id="email" name="email" type="email" autocomplete="username" value="ceo@soxibeta.com" required>
+
+        <label for="password">PASSWORD</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" value="ceo2026" required>
+
+        <div class="credentials">
+          <div><span class="credential-dot"></span><span>Active demo credentials</span></div>
+          <strong id="active-credentials">ceo@soxibeta.com / ceo2026</strong>
+        </div>
+
+        <div class="error" id="login-error" role="alert"></div>
+        <button class="submit-btn" id="submit-btn" type="submit"><span>Continue to workspace</span><span>→</span></button>
+      </form>
+
+      <details class="mock-creds" open>
+        <summary>View all demo credentials</summary>
+        <div class="cred-list" role="region" aria-label="All demo credentials">
+          <div class="cred-head"><span>ROLE</span><span>EMAIL ADDRESS</span><span>PASSWORD</span></div>
+          <div class="cred-row"><span>CEO</span><b>ceo@soxibeta.com</b><code>ceo2026</code></div>
+          <div class="cred-row"><span>CHRO</span><b>chro@soxibeta.com</b><code>chro2026</code></div>
+          <div class="cred-row"><span>HRBP</span><b>hrbp@soxibeta.com</b><code>hrbp2026</code></div>
+          <div class="cred-row"><span>Manager</span><b>manager@soxibeta.com</b><code>manager2026</code></div>
+          <div class="cred-row"><span>Employee</span><b>employee@soxibeta.com</b><code>employee2026</code></div>
+        </div>
+      </details>
+    </section>
+  </main>
+  <script src="login.js"></script>
+</body>
+</html>

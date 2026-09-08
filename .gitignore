@@ -1,0 +1,5 @@
+node_modules/
+.DS_Store
+*.log
+data/.sessions.json
+hrms_fixed_header/data/.sessions.json

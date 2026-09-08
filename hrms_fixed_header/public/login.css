@@ -1,0 +1,487 @@
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:"DM Sans",Arial,sans-serif;color:#15251f}body{background:#f3f6f4}.login-shell{min-height:100vh;display:grid;grid-template-columns:minmax(420px,1fr) minmax(500px,620px);background:#fff}.login-visual{position:relative;overflow:hidden;background:linear-gradient(145deg,#062f27 0%,#0a5d4a 55%,#087f63 100%);color:#fff;padding:44px 7vw;display:flex;flex-direction:column;justify-content:space-between}.login-visual:before,.login-visual:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.13);border-radius:50%;pointer-events:none}.login-visual:before{width:520px;height:520px;right:-240px;top:-170px}.login-visual:after{width:700px;height:700px;left:-450px;bottom:-390px}.visual-brand,.mobile-brand{display:flex;align-items:center;gap:12px;font-size:22px;font-weight:800;letter-spacing:-.5px;position:relative;z-index:1}.visual-mark{width:38px;height:38px;border-radius:10px;background:#fff;color:#087f63;display:grid;place-items:center;font-family:Georgia,serif;font-weight:700;font-size:23px;box-shadow:0 8px 24px rgba(0,0,0,.16)}.visual-content{max-width:590px;position:relative;z-index:1}.eyebrow{font:700 11px "IBM Plex Mono",monospace;letter-spacing:1.6px;color:#0b8f70}.login-visual .eyebrow{color:#9ff0da}.visual-content h1{font-size:clamp(42px,5vw,72px);line-height:1.02;letter-spacing:-2.5px;margin:16px 0 20px}.visual-content p{max-width:520px;color:rgba(255,255,255,.78);font-size:17px;line-height:1.7;margin:0}.visual-stats{display:flex;gap:42px;margin-top:42px}.visual-stats div{display:grid;gap:4px}.visual-stats strong{font-size:25px}.visual-stats span{font-size:11px;color:rgba(255,255,255,.62);text-transform:uppercase;letter-spacing:.8px}.visual-footer{font-size:11px;color:rgba(255,255,255,.58);position:relative;z-index:1}.visual-footer span{padding:0 8px}.login-panel{padding:54px clamp(32px,6vw,86px);display:flex;flex-direction:column;justify-content:center;max-width:720px;width:100%;margin:auto}.mobile-brand{display:none}.login-heading{margin-bottom:30px}.login-heading h2{font-size:38px;line-height:1.05;letter-spacing:-1.4px;margin:9px 0 10px;color:#13231e}.login-heading p{margin:0;color:#6b7771;font-size:14px}.role-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px;font-size:10px;font-weight:800;letter-spacing:1.2px;color:#53605a}.role-hint{font-size:11px;letter-spacing:0;color:#087f63;border:1px solid #b9dfd4;background:#edf9f5;padding:6px 9px;border-radius:999px}.role-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:26px}.role-btn{border:1px solid #d9e1dd;background:#f6f8f7;border-radius:10px;min-height:70px;padding:8px 4px;cursor:pointer;color:#2b3833;font-weight:700;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;transition:.18s ease}.role-btn:hover{border-color:#83cdb9;transform:translateY(-1px)}.role-btn.active{background:#eaf8f3;border-color:#087f63;box-shadow:0 0 0 2px rgba(8,127,99,.08)}.role-code{font:800 10px "IBM Plex Mono",monospace;background:#e4ebe7;color:#51615a;padding:3px 6px;border-radius:5px}.active .role-code{background:#087f63;color:#fff}.role-btn span:last-child{font-size:11px}.login-panel label{display:block;font-size:10px;font-weight:800;letter-spacing:1.2px;color:#59665f;margin:17px 0 8px}.login-panel input{width:100%;height:52px;border:1px solid #d4ddd8;background:#fbfcfb;border-radius:8px;padding:0 14px;font:600 15px "DM Sans",sans-serif;color:#17251f;outline:none;transition:.15s}.login-panel input:focus{border-color:#087f63;box-shadow:0 0 0 3px rgba(8,127,99,.09)}.credentials{margin-top:15px;border:1px solid #d7e5df;background:#f4faf7;border-radius:8px;padding:11px 12px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:11px;color:#5c6b64}.credentials>div{display:flex;align-items:center;gap:8px}.credential-dot{width:7px;height:7px;border-radius:50%;background:#0a9a76}.credentials strong{font:600 11px "IBM Plex Mono",monospace;color:#253a32}.error{min-height:22px;color:#bd3828;font-size:12px;font-weight:700;padding-top:7px}.submit-btn{width:100%;height:56px;border:0;border-radius:8px;background:#087f63;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 18px;font-size:14px;font-weight:800;cursor:pointer;margin-top:3px;box-shadow:0 8px 20px rgba(8,127,99,.18);transition:.18s}.submit-btn:hover{background:#066c55;transform:translateY(-1px)}.mock-creds{margin-top:24px;border-top:1px solid #e1e7e4;padding-top:17px;font-size:12px}.mock-creds summary{cursor:pointer;font-weight:700;color:#33443c}.cred-list{display:grid;gap:7px;margin-top:13px;font:11px "IBM Plex Mono",monospace;color:#5d6a64}.cred-list div{display:grid;grid-template-columns:72px 1fr;gap:7px}.cred-list span{font-weight:700;color:#087f63}@media(max-width:900px){.login-shell{grid-template-columns:1fr}.login-visual{display:none}.login-panel{padding:36px 28px;max-width:620px}.mobile-brand{display:flex;margin-bottom:34px;color:#12251f}.mobile-brand .visual-mark{background:#087f63;color:#fff}}@media(max-width:560px){.login-panel{padding:28px 18px}.login-heading h2{font-size:31px}.role-grid{grid-template-columns:repeat(3,1fr)}.credentials{align-items:flex-start;flex-direction:column}.cred-list div{grid-template-columns:65px 1fr}}
+/* ===== HRMS PORTAL LOGIN REDESIGN ===== */
+html,body{font-family:"DM Sans",Arial,sans-serif;color:#102c4c;background:#f4f7fb}
+.login-shell{background:#fff}
+.login-visual{background:linear-gradient(145deg,#102f52 0%,#173b63 52%,#0a8f6a 100%);padding:44px 7vw}
+.login-visual .eyebrow{color:#a9ead5}
+.visual-mark{background:#fff;color:#173b63;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.14)}
+.visual-brand{font-family:"DM Sans",sans-serif}
+.visual-content h1{font-family:"DM Sans",sans-serif;font-weight:800;letter-spacing:-2.2px}
+.visual-content p{color:rgba(255,255,255,.82)}
+.login-panel{background:#fff}
+.login-heading h2{font-family:"DM Sans",sans-serif;font-weight:800;color:#102c4c}
+.role-hint{color:#087454;border-color:#a9decf;background:#eaf8f3}
+.role-btn{border-color:#d7e2ea;background:#f7f9fc;border-radius:10px}
+.role-btn:hover{border-color:#79c9b3}
+.role-btn.active{background:#eaf8f3;border-color:#0a8f6a;box-shadow:0 0 0 2px rgba(10,143,106,.08)}
+.active .role-code{background:#0a8f6a}
+.login-panel input{border-color:#d7e2ea;background:#fbfcfd;border-radius:9px}
+.login-panel input:focus{border-color:#0a8f6a;box-shadow:0 0 0 3px rgba(10,143,106,.09)}
+.credentials{border-color:#cfe5dd;background:#f1faf6;border-radius:9px}
+.credential-dot{background:#0a8f6a}
+.submit-btn{background:#173b63;border-radius:9px;box-shadow:0 8px 20px rgba(23,59,99,.18)}
+.submit-btn:hover{background:#102f52}
+.mock-creds{border-color:#e2e9ef}
+
+
+/* ===== FIXED LOGIN VIEWPORT / CREDENTIALS-ONLY SCROLL ===== */
+html, body { height: 100%; overflow: hidden; }
+.login-shell { height: 100vh; min-height: 0; overflow: hidden; }
+.login-visual { min-height: 0; }
+.login-panel { height: 100vh; min-height: 0; overflow: hidden; justify-content: flex-start; padding-top: 42px; padding-bottom: 34px; }
+.mock-creds { flex: 0 0 auto; width: 100%; min-width: 0; }
+.mock-creds summary {
+  display: block;
+  padding: 2px 0 6px;
+  font-size: 13px;
+  line-height: 1.35;
+  color: #102c4c;
+  font-weight: 800;
+}
+.mock-creds[open] .cred-list {
+  max-height: 220px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 4px 8px 4px 0;
+  scrollbar-width: thin;
+}
+.mock-creds[open] .cred-list::-webkit-scrollbar { width: 6px; }
+.mock-creds[open] .cred-list::-webkit-scrollbar-thumb { background: #b8c7d6; border-radius: 10px; }
+.cred-list { width: 100%; min-width: 0; }
+.cred-list div {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) 105px;
+  align-items: center;
+  gap: 10px;
+  min-height: 27px;
+  white-space: nowrap;
+}
+.cred-list span { color: #087454; font-weight: 800; }
+.cred-list b { font-weight: 600; overflow: hidden; text-overflow: ellipsis; }
+.cred-list div::after {
+  content: '';
+}
+@media (max-width: 560px) {
+  .cred-list div { grid-template-columns: 62px minmax(0, 1fr); }
+  .cred-list div b:last-child { grid-column: 2; }
+}
+
+/* Keep the action controls boxed, aligned and visible in the dashboard header. */
+.topbar-actions { display:flex; align-items:center; gap:8px; flex-shrink:0; }
+.topbar-actions .btn { min-width: 94px; min-height: 40px; height:auto; padding: 8px 12px; line-height:1.15; white-space:normal; text-align:center; display:inline-flex; align-items:center; justify-content:center; }
+.topbar-actions #logout-btn { min-width: 82px; }
+.topbar-actions #print-brief-btn { min-width: 112px; }
+.topbar-actions #quick-export-btn { min-width: 122px; }
+
+@media (max-width: 900px) {
+  html, body { overflow: auto; }
+  .login-shell { height:auto; min-height:100vh; overflow:visible; }
+  .login-panel { height:auto; min-height:100vh; overflow:visible; }
+}
+
+/* ===== CREDENTIAL LIST: SELF-CONTAINED SCROLL, NEVER CLIPPED BY VIEWPORT ===== */
+.login-panel { min-height: 0; }
+.mock-creds {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.mock-creds[open] .cred-list {
+  flex: 1 1 auto;
+  min-height: 72px;
+  max-height: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 6px 12px 8px 0;
+  margin-top: 10px;
+  scrollbar-width: auto;
+  scrollbar-color: #7f94aa #edf2f6;
+}
+.mock-creds[open] .cred-list::-webkit-scrollbar { width: 10px; }
+.mock-creds[open] .cred-list::-webkit-scrollbar-track { background: #edf2f6; border-radius: 8px; }
+.mock-creds[open] .cred-list::-webkit-scrollbar-thumb { background: #7f94aa; border-radius: 8px; border: 2px solid #edf2f6; }
+.mock-creds[open] .cred-list div {
+  grid-template-columns: 82px minmax(180px, 1fr) 100px;
+  min-height: 30px;
+  padding-right: 4px;
+}
+.mock-creds[open] .cred-list b { overflow: visible; text-overflow: clip; }
+
+
+/* ===== FINAL LOGIN CREDENTIALS + LOGOUT STYLE ===== */
+.login-panel {
+  height: 100vh;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 32px;
+  padding-bottom: 28px;
+}
+
+.login-heading { flex: 0 0 auto; margin-bottom: 22px; }
+.role-heading { flex: 0 0 auto; }
+.role-grid { flex: 0 0 auto; margin-bottom: 16px; }
+#login-form { flex: 0 0 auto; min-height: 0; }
+
+.mock-creds {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: auto;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid #dfe7ee;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.mock-creds summary {
+  flex: 0 0 auto;
+  display: block;
+  color: #071B36;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 20px;
+  cursor: pointer;
+  list-style-position: outside;
+  user-select: none;
+}
+
+.mock-creds summary::marker { color: #1F416B; }
+
+.mock-creds[open] .cred-list {
+  display: block;
+  flex: 1 1 auto;
+  min-height: 130px;
+  height: auto;
+  max-height: none;
+  margin-top: 10px;
+  padding: 0 10px 6px 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: auto;
+  scrollbar-color: #7B94AC #EAF0F5;
+  border: 1px solid #E0E8EF;
+  border-radius: 8px;
+  background: #FAFCFE;
+}
+
+.mock-creds[open] .cred-list::-webkit-scrollbar { width: 10px; }
+.mock-creds[open] .cred-list::-webkit-scrollbar-track {
+  background: #EAF0F5;
+  border-radius: 8px;
+}
+.mock-creds[open] .cred-list::-webkit-scrollbar-thumb {
+  background: #7B94AC;
+  border-radius: 8px;
+  border: 2px solid #EAF0F5;
+}
+.mock-creds[open] .cred-list::-webkit-scrollbar-thumb:hover { background: #55789C; }
+
+.cred-head,
+.cred-row {
+  display: grid;
+  grid-template-columns: 86px minmax(190px, 1fr) 112px;
+  align-items: center;
+  column-gap: 12px;
+  width: 100%;
+  padding: 0 12px;
+  white-space: nowrap;
+}
+
+.cred-head {
+  min-height: 30px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #EEF3F7;
+  border-bottom: 1px solid #DCE5ED;
+  color: #65788D;
+  font: 800 9px "IBM Plex Mono", monospace;
+  letter-spacing: .07em;
+}
+
+.cred-row {
+  min-height: 42px;
+  border-bottom: 1px solid #E7EDF2;
+  color: #536B82;
+  font: 500 11px "IBM Plex Mono", monospace;
+}
+.cred-row:last-child { border-bottom: 0; }
+.cred-row > span {
+  color: #1F416B;
+  font-weight: 800;
+}
+.cred-row b {
+  color: #263F59;
+  font-weight: 600;
+  overflow: visible;
+  text-overflow: clip;
+}
+.cred-row code {
+  color: #071B36;
+  background: #EDF3F8;
+  border: 1px solid #D5E0E9;
+  border-radius: 5px;
+  padding: 5px 7px;
+  font: 600 11px "IBM Plex Mono", monospace;
+  width: fit-content;
+}
+
+/* SUPER ADMIN-style logout pill: bold, light green, compact. */
+.topbar-actions #logout-btn {
+  min-width: 90px !important;
+  height: 32px !important;
+  padding: 5px 13px !important;
+  border-radius: 999px !important;
+  border: 1px solid #9DDBC9 !important;
+  background: #EAF8F3 !important;
+  color: #087454 !important;
+  font-family: "IBM Plex Mono", monospace !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: .04em !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: none !important;
+}
+.topbar-actions #logout-btn:hover {
+  background: #DDF3EC !important;
+  border-color: #72C8AE !important;
+  color: #05634F !important;
+}
+
+@media (max-width: 900px) {
+  html, body { overflow: auto; }
+  .login-shell { height: auto; min-height: 100vh; overflow: visible; }
+  .login-panel { height: auto; min-height: 100vh; overflow: visible; }
+  .mock-creds { flex: 0 0 auto; max-height: 340px; }
+  .mock-creds[open] .cred-list { height: 250px; max-height: 250px; flex: 0 0 250px; }
+}
+
+@media (max-width: 620px) {
+  .cred-head, .cred-row {
+    grid-template-columns: 70px minmax(160px, 1fr) 100px;
+    column-gap: 8px;
+    padding-left: 10px;
+    padding-right: 8px;
+  }
+}
+
+/* Final credential readability fix */
+.mock-creds {
+  flex: 0 0 auto !important;
+  width: 100%;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.mock-creds[open] .cred-list {
+  display: block !important;
+  width: 100%;
+  height: 230px !important;
+  min-height: 230px !important;
+  max-height: 230px !important;
+  margin-top: 10px;
+  padding: 0 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  border: 1px solid #DCE5ED;
+  border-radius: 8px;
+  background: #FFFFFF;
+  scrollbar-width: auto;
+  scrollbar-color: #1F416B #EAF0F5;
+}
+
+.mock-creds[open] .cred-list::-webkit-scrollbar { width: 14px; }
+.mock-creds[open] .cred-list::-webkit-scrollbar-track {
+  background: #EAF0F5;
+  border-radius: 8px;
+}
+.mock-creds[open] .cred-list::-webkit-scrollbar-thumb {
+  background: #1F416B;
+  border: 3px solid #EAF0F5;
+  border-radius: 10px;
+}
+.mock-creds[open] .cred-list::-webkit-scrollbar-thumb:hover { background: #163653; }
+
+.cred-head,
+.cred-row {
+  grid-template-columns: 82px minmax(0, 1fr) 116px !important;
+  column-gap: 10px !important;
+  padding: 0 12px !important;
+}
+
+.cred-head { min-height: 30px !important; }
+.cred-row {
+  min-height: 38px !important;
+  font-size: 11px !important;
+}
+.cred-row b,
+.cred-row code {
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .login-panel {
+    min-height: 100vh;
+    height: auto;
+    justify-content: flex-start;
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+  .mock-creds[open] .cred-list {
+    height: 250px !important;
+    min-height: 250px !important;
+    max-height: 250px !important;
+  }
+}
+
+
+/* =========================================================
+   FINAL CREDENTIALS SCROLL FIX
+   Keep the login viewport fixed; ONLY the credentials list scrolls.
+   ========================================================= */
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.login-shell {
+  height: 100vh;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.login-panel {
+  height: 100vh;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Keep the credentials section itself visible */
+.mock-creds {
+  width: 100%;
+  flex: 0 0 auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* Always keep the expanded credential list inside its own scroll box */
+.mock-creds[open] .cred-list {
+  display: block !important;
+  width: 100%;
+  height: 210px !important;
+  min-height: 210px !important;
+  max-height: 210px !important;
+
+  margin-top: 10px;
+  padding: 0 8px 0 0 !important;
+
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+
+  border: 1px solid #dce5ed;
+  border-radius: 8px;
+  background: #ffffff;
+
+  scrollbar-width: auto;
+  scrollbar-color: #1f416b #eaf0f5;
+}
+
+/* Make the scrollbar obvious and easy to drag */
+.mock-creds[open] .cred-list::-webkit-scrollbar {
+  width: 14px;
+}
+
+.mock-creds[open] .cred-list::-webkit-scrollbar-track {
+  background: #eaf0f5;
+  border-radius: 8px;
+}
+
+.mock-creds[open] .cred-list::-webkit-scrollbar-thumb {
+  background: #1f416b;
+  border: 3px solid #eaf0f5;
+  border-radius: 10px;
+  min-height: 45px;
+}
+
+.mock-creds[open] .cred-list::-webkit-scrollbar-thumb:hover {
+  background: #163653;
+}
+
+/* Keep every role readable */
+.mock-creds .cred-head,
+.mock-creds .cred-row {
+  display: grid !important;
+  grid-template-columns: 82px minmax(0, 1fr) 116px !important;
+  column-gap: 10px !important;
+  align-items: center;
+  padding: 0 12px !important;
+  box-sizing: border-box;
+}
+
+.mock-creds .cred-head {
+  min-height: 34px !important;
+  color: #536579;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.mock-creds .cred-row {
+  min-height: 40px !important;
+  font-size: 11px !important;
+  border-top: 1px solid #edf1f4;
+}
+
+.mock-creds .cred-row b,
+.mock-creds .cred-row code {
+  white-space: nowrap !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+
+.mock-creds .cred-row span:first-child {
+  color: #087454;
+  font-weight: 800;
+}
+
+/* On small screens, allow the page to adapt but keep credential scrolling local */
+@media (max-width: 900px) {
+  html, body {
+    overflow: auto;
+  }
+
+  .login-shell {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  .login-panel {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  .mock-creds[open] .cred-list {
+    height: 220px !important;
+    min-height: 220px !important;
+    max-height: 220px !important;
+  }
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HRMS — Enterprise Workforce Dashboard</title>
+  
+  <!-- Typography: Playfair Display, DM Sans, IBM Plex Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Left Navigation Sidebar -->
+    <aside class="sidebar">
+      <div class="brand-block">
+        <div class="brand-mark">
+          <span class="brand-monogram">H</span>
+        </div>
+        <div class="brand-text">
+          <h1 class="brand-title">HRMS</h1>
+          <span class="brand-edition">WORKFORCE INTELLIGENCE</span>
+        </div>
+      </div>
+
+      <!-- Active Persona / Identity Scoping Card -->
+      <div class="persona-card" id="persona-card">
+        <div class="persona-header">
+          <span class="persona-label">ACTIVE PERSONA</span>
+          <span class="persona-badge" id="persona-badge">SUPER ADMIN</span>
+        </div>
+        <div class="persona-name" id="persona-name">CXO Executive Suite</div>
+        <div class="persona-scope" id="persona-scope">Global Scope: 4 Operating Entities</div>
+      </div>
+
+      <nav class="nav-menu">
+        <div class="nav-section-label">Core Platform</div>
+        <a href="#dashboard" class="nav-item active" data-view="dashboard">
+          <span class="nav-indicator"></span>
+          <span class="nav-label">Dashboard &amp; KPIs</span>
+        </a>
+        <a href="#library" class="nav-item" data-view="library">
+          <span class="nav-indicator"></span>
+          <span class="nav-label">Report Library</span>
+          <span class="nav-badge" id="nav-reports-count">21</span>
+        </a>
+        <a href="#builder" class="nav-item" data-view="builder">
+          <span class="nav-indicator"></span>
+          <span class="nav-label">Custom Builder</span>
+        </a>
+
+        <div class="nav-section-label">Intelligence &amp; Operations</div>
+        <a href="#copilot" class="nav-item" data-view="copilot">
+          <span class="nav-indicator"></span>
+          <span class="nav-label">AI Copilot</span>
+          <span class="nav-badge-pill">Grounded</span>
+        </a>
+        <a href="#schedules" class="nav-item" data-view="schedules">
+          <span class="nav-indicator"></span>
+          <span class="nav-label">Automated Schedules</span>
+        </a>
+        <a href="#audit" class="nav-item" data-view="audit">
+          <span class="nav-indicator"></span>
+          <span class="nav-label">Security &amp; Audit Trail</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="system-status">
+          <span class="status-dot"></span>
+          <span class="status-text" id="footer-status-text">600 Verified Records</span>
+        </div>
+        <div class="system-meta">Zero Dependency Engine v2.0</div>
+      </div>
+    </aside>
+
+    <!-- Main Application Shell -->
+    <div class="content-wrapper">
+      <!-- Top Bar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <div class="view-breadcrumb">
+            <span class="breadcrumb-root">HRMS</span>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current" id="breadcrumb-current">Dashboard</span>
+          </div>
+        </div>
+
+        <div class="topbar-search" role="search">
+          <span class="search-icon">⌕</span>
+          <input id="global-search" type="search" placeholder="Search reports, people, insights..." aria-label="Search" />
+        </div>
+
+        <div class="topbar-right">
+          <!-- Theme Switcher (Light Paper / Dark Warm-Neutral) -->
+          <button id="theme-toggle-btn" class="theme-toggle-btn" title="Toggle Light / Dark Theme">
+            THEME: LIGHT
+          </button>
+
+          <!-- Role Perspective Selector -->
+          <div class="control-group">
+            <label class="control-label" for="role-select">Role Identity</label>
+            <select id="role-select" class="select-input">
+              <option value="cxo">CEO (Enterprise Executive)</option>
+              <option value="chro">CHRO (Chief HR Officer)</option>
+              <option value="hrbp">HRBP (Sales Department Scope)</option>
+              <option value="manager">Line Manager (Management Pod)</option>
+              <option value="employee">Employee (Self-Service ESS)</option>
+            </select>
+          </div>
+
+          <!-- Entity Filter -->
+          <div class="control-group" id="global-entity-group">
+            <label class="control-label" for="global-entity-select">Entity</label>
+            <select id="global-entity-select" class="select-input">
+              <option value="All">All Operating Entities</option>
+            </select>
+          </div>
+
+          <div class="topbar-actions">
+            <button class="top-icon-btn" type="button" aria-label="Notifications" title="Notifications">♧<span class="notification-dot"></span></button>
+            <div class="user-chip">
+              <div class="user-avatar">H</div>
+              <div class="user-chip-copy"><strong>HRMS User</strong><span id="user-role-label">Dashboard</span></div>
+            </div>
+            <button class="btn btn-secondary" id="logout-btn" type="button">LOGOUT</button>
+            <button id="print-brief-btn" class="btn btn-secondary">
+              Print Brief / PDF
+            </button>
+            <button id="quick-export-btn" class="btn btn-primary">
+              Export Roster CSV
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dynamic View Container -->
+      <main id="main" class="main-viewport">
+        <!-- Rendered by client-side router -->
+      </main>
+    </div>
+  </div>
+
+  <!-- Notification Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Modal / Dialog Host -->
+  <div id="modal-backdrop" class="modal-backdrop hidden">
+    <div class="modal-card" id="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-title" class="modal-title">Notice</h3>
+        <button id="modal-close-btn" class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+      <div class="modal-footer" id="modal-footer">
+        <button class="btn btn-primary" id="modal-ok-btn">Acknowledge</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
